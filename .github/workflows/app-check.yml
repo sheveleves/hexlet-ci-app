@@ -4,11 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/node@master
-      env:
-      	SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}      	
+    - uses: actions/checkout@v2     	
     - uses: actions/setup-node@v1
       with:
         node-version: 16
@@ -16,4 +12,8 @@ jobs:
     - run: make setup
     - run: make lint
     - run: make test
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/node@master
+      env:
+      	SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     
