@@ -1,18 +1,18 @@
-name: Hexlet-example-workflow
-on: [push]
+name: app-check
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v1
         with:
           node-version: 16
           cache: 'npm'
       - run: make setup
-      - run: make test
       - run: make lint
-  security:
+      - run: make test
+  synk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
