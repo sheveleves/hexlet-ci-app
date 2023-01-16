@@ -12,9 +12,6 @@ jobs:
       - run: make setup
       - run: make lint
       - run: make test
-  synk:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
